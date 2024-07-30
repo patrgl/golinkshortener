@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/htmx.org@2.0.1"></script>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Railway', sans-serif;
+            text-align: center;
+        }
+        input {
+            width: 90%;
+        }
+        button {
+            margin-top: 5px;
+            width: 90%;
+        }
+        #new-short-link {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Get a shortened link</h1>
+        <form hx-post="/submit-link" hx-target="#new-short-link">
+            <input type="text" name="original-link" placeholder="Place original link here">
+            <button type="submit">Get short link</button>
+        </form>
+        <div id="new-short-link">
+        </div>
+    </div>
+</body>
+</html>

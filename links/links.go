@@ -20,7 +20,7 @@ func ShortenLink(base_url string, original string, db *gorm.DB) string {
 
 		//check if randomly-generated already exists in db, if it doesnt, function ends and returns the shortened link
 		query_link := models.Link{}
-		result := db.First(&query_link, "short = ?", short)
+		result := db.First(&query_link, "short = ?", string_short)
 		if result.Error != nil { // if new short link does not exist, add to db and return it
 			submit_link := models.Link{Original: original, Short: string_short}
 			s := db.Create(&submit_link)
